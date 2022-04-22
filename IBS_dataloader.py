@@ -4,27 +4,7 @@ from tensorflow.keras.applications.imagenet_utils import  preprocess_input
 from sklearn.utils import shuffle
 import shutil
 
-def labelencoding_onehot(type):
-    if type == 'Positive':
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
-    elif type =='BarCharts':
-        return [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
-    elif type =='BoxPlots':
-        return [0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
-    elif type =='Chemical':
-        return [0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
-    elif type =='CircosPlots':
-        return [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
-    elif type =='HeatMap':
-        return [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
-    elif type =='Histogram':
-        return [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-    elif type =='PieCharts':
-        return [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
-    elif type =='LinePlots':
-        return [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
-    elif type =='ScatterPlots':
-        return [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 def labelencoding(type):
     if type == 'Biological Sequences':
         return 0
