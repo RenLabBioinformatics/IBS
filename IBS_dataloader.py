@@ -132,7 +132,25 @@ def load_data():
     img_data = np.rollaxis(img_data, 1, 0)
     img_data = img_data[0]
     return img_data,labels
+def load_data_predict(dir):
+    img_data_list = []
+    file_name_list=[]
+    root_path = "F:\\IBS_data\\Science\\CroppedData\\resized\\"
+    path = root_path+dir+"\\"
 
+    for temp_path,temp_filename in findAllFile_returnName(path):
+        img = image.load_img(temp_path)
+        x = image.img_to_array(img)
+        x = np.expand_dims(x, axis=0)
+        x = preprocess_input(x)
+        img_data_list.append(x)
+        file_name_list.append(temp_filename)
+    img_data = np.array(img_data_list)
+    # print(img_data.shape)
+    img_data = np.rollaxis(img_data, 1, 0)
+    # print(img_data.shape)
+    img_data = img_data[0]
+    return img_data,file_name_list
 
 
 if __name__ == '__main__':
